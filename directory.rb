@@ -22,6 +22,7 @@ end
 def print_menu
   puts "1. Input the students"
   puts "2. Show the students"
+  puts "3. Save the list of students.csv"
   puts "9. Exit" #because we'll be adding more items
 end
 def print_header
@@ -47,11 +48,24 @@ def process(selection)
     input_students
   when "2"
     show_students
+  when "3"
+    save_students
   when "9"
     exit # this will cause the program to terminate
   else
     puts "I don't know what you meant, try again"
   end
+end
+def save_students
+  #open the file for writing
+  file = File.open("students.csv", "w")
+  #iterate over the array of students
+  @students.each do |student|
+    student_data = [student[:name], student[:cohort]]
+    csv_line = student_data.join(",")
+    file.puts csv_line
+  end
+  file.close
 end
 #nothing will happen until we call the interactive_menu
 interactive_menu
