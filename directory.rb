@@ -14,8 +14,12 @@ def input_students
     country_birth = gets.chomp
     puts "Height?"
     height = gets.chomp
+    puts "Cohort?"
+    cohort = gets.chomp
+    cohort = cohort.to_sym if !cohort.empty?  
+    cohort = :november if cohort.empty?
     students << {name: name, hobby: hobby, country_birth: country_birth,
-      height: height, cohort: :november}
+      height: height, cohort: cohort}
     puts "Now we have #{students.count} students"
     #get another name from the user
     name = gets.chomp
