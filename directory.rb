@@ -21,10 +21,10 @@ def print_header
   puts "-------------"
 end
 def print(students)
-  students.each_with_index do |student, index|
-    if student[:name][0] == "S"
-    puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
-  end
+  students.each do |student| 
+    if student[:name].length < 12
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 def print_footer(students)
