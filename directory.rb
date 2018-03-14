@@ -16,11 +16,15 @@ def input_students
     height = gets.chomp
     puts "Cohort?"
     cohort = gets.chomp
-    cohort = cohort.to_sym if !cohort.empty?  
+    cohort = cohort.to_sym if !cohort.empty?
     cohort = :november if cohort.empty?
     students << {name: name, hobby: hobby, country_birth: country_birth,
       height: height, cohort: cohort}
-    puts "Now we have #{students.count} students"
+    if students.count > 1
+      puts "Now we have #{students.count} students"
+    elsif students.count == 1
+      puts "Now we have 1 student"
+    end
     #get another name from the user
     name = gets.chomp
   end
@@ -45,7 +49,11 @@ def print(students)
   end
 end
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  if students.count > 1
+    puts "Overall, we have #{students.count} great students"
+  elsif students.count == 1
+    puts "Overall, we have 1 great student"
+  end
 end
 
 #nothing will happen until we call the methods
