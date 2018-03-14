@@ -24,8 +24,8 @@ def input_students
   students
 end
 def print_header
-  puts "The students of Villains Academy"
-  puts "-------------"
+  puts "The students of Villains Academy".center(50)
+  puts "-------------".center(50)
 end
 def print(students)
 #  students.each do |student|
@@ -36,7 +36,7 @@ def print(students)
   x = 0
   while x != students.count
     student = students[x]
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    puts "#{student[:name]} (#{student[:cohort]} cohort)".center(50)
     x += 1
   end
 end
